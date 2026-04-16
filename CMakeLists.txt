@@ -3,4 +3,6 @@ project(Perceptron C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(Perceptron main.c)
+add_executable(Perceptron main.c
+        Perceptron.c
+        Perceptron.h)

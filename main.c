@@ -4,9 +4,11 @@
 
 int main(void)
 {
-    printf("Welcome to Perceptron learning system!\n");
+    printf("Welcome to Perceptron learning system!\n\n");
     //Kaç tur eğitim yapması gerektiğini söyeleyen değişken
     int epoch_sayisi;
+
+    int error_count;
 
     //Eğitim verileri and öğrettiğimiz varsayarak 4 tane farklı senaryo üzerinden öğreniyor
     double training_inputs[4][2] = {
@@ -29,6 +31,22 @@ int main(void)
     //Epoch sayısı kadar eğitim yapabilmesi için for oluşturdum
     for (int epoch=0 ; epoch < epoch_sayisi; epoch++)
     {
+        error_count = 0;
+
+        for (int i = 0; i < 4; i++)
+        {
+            // Makinamız öğrendiği zaman boş turlar atmasını engellemek için kontrol
+            if (targets[i] != predict(yapay_zeka, training_inputs[i]))
+            {
+                error_count++;
+            }
+        }
+        if (error_count==0)
+        {
+            printf("Makine Ogrenmesi %d. turda tamamlandi\n\n",epoch+1);
+            break;
+        }
+
         for (int j = 0; j < 4; j++)
         {
             train(yapay_zeka,training_inputs[j],targets[j]);
@@ -36,7 +54,7 @@ int main(void)
     }
 
 
-    printf("Egitim Tamamlandi!\n\n");
+
     printf("--- TEST ASAMASI ---\n");
 
     //Hedeflenen çıktı ile makinaın öğrenip kendi yaptığı son tahmini karşılaştırdık

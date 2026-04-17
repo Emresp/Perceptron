@@ -4,6 +4,7 @@
 
 int main(void)
 {
+
     printf("Welcome to Perceptron learning system!\n\n");
     //Kaç tur eğitim yapması gerektiğini söyeleyen değişken
     int epoch_sayisi;
@@ -28,6 +29,8 @@ int main(void)
     // Kaç tur Eğitim yapması gerektiğini girdim
     epoch_sayisi = 20;
 
+    load_model(yapay_zeka);
+
     //Epoch sayısı kadar eğitim yapabilmesi için for oluşturdum
     for (int epoch=0 ; epoch < epoch_sayisi; epoch++)
     {
@@ -44,6 +47,10 @@ int main(void)
         if (error_count==0)
         {
             printf("Makine Ogrenmesi %d. turda tamamlandi\n\n",epoch+1);
+
+            //Öğrenme gerçekleştirilince değerleri kaybetmemek için kalıcı bir biçimde kayıt ediyoruz
+            save_model(yapay_zeka);
+
             break;
         }
 

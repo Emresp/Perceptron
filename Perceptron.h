@@ -27,5 +27,11 @@ int predict(Perceptron* p, double* inputs );
 //ta ki hedef=tahmin olana kadar işte o zaman makine öğrenmiş olur
 void train(Perceptron* p, double* inputs, int target);
 
+//Modeli Kaydetmek için fonksiyon
+void save_model(Perceptron* model);
+
+//Modelin yüklemek için fonksiyon
+void load_model(Perceptron* model);
+
 
 #endif //PERCEPTRON_PERCEPTRON_H

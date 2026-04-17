@@ -81,10 +81,48 @@ void train(Perceptron* p, double* inputs, int target)
         //bias gücelleme
         p->bias=(double) p->bias+(error*p->learning_rate);
     }
+}
 
 
+void save_model(Perceptron* model)
+{
+    FILE* file=fopen("saved_model.txt","w");
 
+    if (file==NULL)
+    {
+        printf("Saved model could not be opened");
+        return;
+    }
 
+    for (int i=0;i<model->input_count;i++)
+    {
+        fprintf(file,"%lf\n",model->weights[i]);
+    }
+    fprintf(file,"%lf\n",model->bias);
 
+    fclose(file);
 
+    printf("saved_model.txt saved\n");
+}
+
+void load_model(Perceptron* model)
+{
+    FILE* file=fopen("saved_model.txt","r");
+
+    if (file==NULL)
+    {
+        printf("Saved model could not be find");
+        return;
+    }
+
+    for (int i=0;i<model->input_count;i++)
+    {
+        fscanf(file,"%lf\n",&model->weights[i]);
+    }
+
+    fscanf(file,"%lf\n",&model->bias);
+
+    fclose(file);
+
+    printf("saved_model.txt load\n");
 }

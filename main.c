@@ -4,7 +4,7 @@
 
 int main(void)
 {
-    int choice;
+    int choice=0;
 
     printf("Welcome to Perceptron learning system!\n\n");
     while (choice != 3)

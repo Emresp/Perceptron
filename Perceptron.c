@@ -94,6 +94,8 @@ void save_model(Perceptron* model)
         return;
     }
 
+    fprintf(file, "%d\n", model->input_count);
+
     for (int i=0;i<model->input_count;i++)
     {
         fprintf(file,"%lf\n",model->weights[i]);
@@ -108,10 +110,19 @@ void save_model(Perceptron* model)
 void load_model(Perceptron* model)
 {
     FILE* file=fopen("saved_model.txt","r");
+    int file_input_count;
 
     if (file==NULL)
     {
         printf("Saved model could not be find\n");
+        return;
+    }
+
+    fscanf(file, "%d", &file_input_count);
+
+    if (file_input_count != model->input_count) {
+        printf("HATA: Dosyadaki model %d girdili ama siz %d girdili bir yer açtınız!\n",
+                file_input_count, model->input_count);
         return;
     }
 
@@ -132,4 +143,40 @@ void process_selection()
     printf("1-) Train\n");
     printf("2-) Predict\n");
     printf("3-) exit\n");
+}
+
+Perceptron* load_model_from_file(const char* filename)
+{
+    //Perceptron Bilgilerinin kayıtlı olduğu dosya okuma modunda açılır
+    FILE* file=fopen(filename,"r");
+    //Dosyada bulunan girdi sayısını tutabilmek için değişkenm
+    int file_input_count;
+
+    //Dosya bulunamazsa NULL değeri dön
+    if (file==NULL)
+    {
+        printf("Saved model could not be find\n");
+        return NULL;
+    }
+
+    //Dosyada ilk değeri oku ve kayıt et
+    fscanf(file, "%d", &file_input_count);
+
+    //Girdi sayısına göre nöronu oluştur
+    Perceptron* model=create_perceptron(file_input_count,0.1);
+
+    //Ağırlıkları oku ve oluşturduğun Perceptronun içine yaz
+    for (int i=0;i<model->input_count;i++)
+    {
+        fscanf(file,"%lf",&model->weights[i]);
+    }
+
+    //Aynı şekilde bias'ı oku ve yaz
+    fscanf(file,"%lf",&model->bias);
+
+    //Dosyayı kapat
+    fclose(file);
+
+    //Oluşan modeli dışarı dön
+    return model;
 }

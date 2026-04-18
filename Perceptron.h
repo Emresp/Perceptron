@@ -36,5 +36,8 @@ void load_model(Perceptron* model);
 //Giriş Ekranını göstermesi için
 void process_selection();
 
+//Bu fonksiyon kayıtlı olan model özzeliklerini okuyarak perceptron oluşturur
+Perceptron* load_model_from_file(const char* filename);
+
 
 #endif //PERCEPTRON_PERCEPTRON_H

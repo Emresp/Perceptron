@@ -68,7 +68,7 @@ Yaptığım bu projenin test aşamasında; 10 saat çalışıp hiç uyumayan bir
 
 Eğitim verilerini çoğaltarak bunu aşabileceğimi düşündüm. Verilere 8 saat çalışıp 0 saat uyuyan bir kişiyi başarısız olarak etiketledim. Böyle yaptığım zaman 100.000 tur attırsam bile yapay zeka genel bir yargıya varamadı, yani katsayıları doğru bir şekilde ayarlayamadı. Bunun sebebi tek bir perceptronun sınıflandırma yaparken verilerin arasına tek bir doğru çekmesinden kaynaklı.
 
-![Perceptron çalışma şekli](./images/Yetersizlikpng)
+![Perceptron çalışma şekli](./images/Yetersizlik.png)
 
 Görselde göründüğü gibi başarısızları ve başarılı öğrencileri tek bir doğru ile ayıramadı.
 

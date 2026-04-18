@@ -111,7 +111,7 @@ void load_model(Perceptron* model)
 
     if (file==NULL)
     {
-        printf("Saved model could not be find");
+        printf("Saved model could not be find\n");
         return;
     }
 
@@ -125,4 +125,11 @@ void load_model(Perceptron* model)
     fclose(file);
 
     printf("saved_model.txt load\n");
+}
+
+void process_selection()
+{
+    printf("1-) Train\n");
+    printf("2-) Predict\n");
+    printf("3-) exit\n");
 }

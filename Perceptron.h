@@ -33,5 +33,8 @@ void save_model(Perceptron* model);
 //Modelin yüklemek için fonksiyon
 void load_model(Perceptron* model);
 
+//Giriş Ekranını göstermesi için
+void process_selection();
+
 
 #endif //PERCEPTRON_PERCEPTRON_H

@@ -91,20 +91,22 @@ int main(void)
         }
         else if (choice == 2)
         {
-            Perceptron *test_model = create_perceptron(2, 0.1);
+            Perceptron *test_model = load_model_from_file("saved_model.txt");
 
-            load_model(test_model);
+            if (test_model == NULL) {
+                printf("Model yuklenemedi, lutfen once egitim (Train) yapin.\n");
+                continue; // Menüye geri dön
+            }
 
-            double test_student[2];
             int result;
 
-            printf("Welcome to Predict system\n");
+            double *test_student = (double*)malloc(test_model->input_count * sizeof(double));
 
-            printf("Enter the student's study hours:");
-            scanf("%lf",&test_student[0]);
-
-            printf("Enter the student's sleep hour:");
-            scanf("%lf",&test_student[1]);
+            for (int i = 0; i < test_model->input_count; i++)
+            {
+                printf("%d. degeri giriniz: ", i + 1);
+                scanf("%lf", &test_student[i]);
+            }
 
             result=predict(test_model,test_student);
 
@@ -117,6 +119,7 @@ int main(void)
                 printf("This student will not pass the exam.\n\n");
             }
 
+            free(test_student);
             free(test_model->weights);
             free(test_model);
         }
@@ -125,7 +128,6 @@ int main(void)
             break;
         }
     }
-
 
     return 0;
 }

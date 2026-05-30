@@ -77,7 +77,7 @@ Sonuç olarak tek bir perceptron karmaşık problemleri tek bir doğru ile ayır
 Benim bu projede öğrendiğim en büyük ders, tek bir nöronun sadece dümdüz bir çizgi çekebildiği, ancak hayatın bu kadar düz olmadığıydı. Katmanlı bir yapıya (Multi-Layer) geçtiğimizde ise bu doğrular birleşerek bükülmeye başlar ve zombi öğrenci gibi uç örnekleri de doğru şekilde ayırt edebilecek bir zekaya dönüşür. Bu projeyle yapay zekanın derinliklerine giden yoldaki o ilk ve en önemli sınırı kendi ellerimle çizmiş oldum.
 ## Yazar
 
-[![GitHub](https://img.shields.io/badge/GitHub-Emresp-181717?style=for-the-badge&logo=github)](https://github.com/Emresp) [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emre-ayözcan-571ba3387)
+[![GitHub](https://img.shields.io/badge/GitHub-Emresp-181717?style=for-the-badge&logo=github)](https://github.com/Emresp)
 
 
   
